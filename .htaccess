@@ -4,7 +4,7 @@ RewriteCond %{HTTP_HOST} ^www.client.dev-php.site$
 RewriteCond %{REQUEST_URI} !public/
 RewriteRule (.*) /public/$1 [L]
 
-SetEnv APP_ENVIRONMENT 'production'
+SetEnv APPLICATION_ENV 'production'
 
 Options +FollowSymLinks
 RewriteEngine On
