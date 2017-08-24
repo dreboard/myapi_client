@@ -11,14 +11,14 @@
 				by <a href="https://github.com/dreboard/myapi">Responses from MyAPI</a>
 			</p>
 			<hr>
-			<div id="results"></div>
+
 			<p>Front end companion of MyAPI used to make calls to endpoints.</p>
 			<ul>
 				<li>Guzzle PSR7 Client</li>
 				<li>jQery AJAX</li>
 			</ul>
-			<a id="ajax_btn" class="btn btn-primary" href="#">Ajax Button <span class="glyphicon glyphicon-chevron-right"></span></a>
-			<?= $_SERVER['SERVER_NAME']; ?>
+			<a id="ajax_btn" class="btn btn-primary" href="#">Get Request <span class="glyphicon glyphicon-chevron-right"></span></a>
+			<div id="results"></div>
 			<hr>
 
 

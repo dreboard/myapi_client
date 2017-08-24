@@ -141,8 +141,8 @@ $( document ).ready(function() {
 				var params = { post_var: post_var };
 				$.ajax({
 					method: "POST",
-					data: { post_var: post_var },   // method #1
-					url: BASE_URL+"/PostController/postVersion",
+					data: { post_var: post_var },
+					url: BASE_URL+"/PostController/postVersion"
 				})
 					.done(function (data) {
 
