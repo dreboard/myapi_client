@@ -1,0 +1,10 @@
+{
+	"description": "CodeIgniter 3 framework project",
+	"name": "dreboard/ci3",
+	"require": {
+		"php": "^7.0",
+		"guzzlehttp/guzzle": "^6.2",
+		"smarty/smarty": "~3.1",
+		"nesbot/carbon": "~1.18"
+	}
+}

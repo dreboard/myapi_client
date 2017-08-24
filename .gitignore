@@ -1,0 +1,25 @@
+.DS_Store
+
+application/cache/*
+!application/cache/index.html
+!application/cache/.htaccess
+
+application/logs/*
+!application/logs/index.html
+!application/logs/.htaccess
+
+log/*
+
+# IDE Files
+#-------------------------
+.idea/*
+
+/node_modules
+/.idea
+
+/css/bootstrap-sass-3.3.7/
+/.vagrant/
+/vendor/
+/ubuntu-xenial-16.04-cloudimg-console.log
+/public/img/
+/logs/*

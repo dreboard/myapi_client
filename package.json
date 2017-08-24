@@ -1,0 +1,27 @@
+{
+  "name": "sample_package",
+  "version": "1.0.0",
+  "keywords": [],
+  "author": "dre_board",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dreboard/bs3_admin"
+  },
+  "bugs": {
+    "url": "https://github.com/dreboard/bs3_admin/issues"
+  },
+  "homepage": "https://github.com/dreboard/bs3_admin",
+  "devDependencies": {
+    "bootstrap-sass": "3.3.7",
+    "ejs": "~1.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.4.0",
+    "gulp-uglify": "^2.0.0",
+    "mincer": "~1.2",
+    "node-juice-sass": "^1.0.0",
+    "node-sass": "~2.0"
+  }
+}
