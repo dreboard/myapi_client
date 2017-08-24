@@ -1,8 +1,11 @@
 RewriteEngine on
-#RewriteCond %{HTTP_HOST} ^client.dev-php.site [NC,OR]
-#RewriteCond %{HTTP_HOST} ^www.client.dev-php.site$
-#RewriteCond %{REQUEST_URI} !public/
-#RewriteRule (.*) /public/$1 [L]
+RewriteCond %{HTTP_HOST} ^client.dev-php.site [NC,OR]
+RewriteCond %{HTTP_HOST} ^www.client.dev-php.site$
+RewriteCond %{REQUEST_URI} !public/
+RewriteRule (.*) /public/$1 [L]
+
+SetEnv APP_ENVIRONMENT 'production'
+
 Options +FollowSymLinks
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-d
