@@ -40,10 +40,10 @@ class PostController extends MY_Controller {
 			]
 			]);
 
-			echo $response->getStatusCode(); // 200
-			echo $response->getReasonPhrase(); // OK
-			echo $response->getProtocolVersion(); // 1.1
-			echo $response->getBody();
+			echo filter_var($response->getStatusCode(), FILTER_SANITIZE_NUMBER_INT); // 200
+			echo htmlspecialchars($response->getReasonPhrase(), ENT_QUOTES, 'utf-8'); // OK
+			echo htmlspecialchars($response->getProtocolVersion(), ENT_QUOTES, 'UTF-8'); // 1.1
+			echo htmlspecialchars($response->getBody(), ENT_QUOTES, 'utf-8');
 
 		} catch (RequestException | Throwable $e) {
 			echo $e->getMessage();

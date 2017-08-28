@@ -18,7 +18,7 @@
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-	<script src="js/main.js?v=<?php echo time();?>"></script>
+	<script src="js/app/main.js?v=<?php echo time();?>"></script>
 	<script src="js/ajax_calls.js?v=<?php echo time();?>"></script>
 
 	<script>
@@ -61,10 +61,10 @@
                     <a href="https://github.com/dreboard">Github</a>
                 </li>
                 <li>
-                    <a href="http://blog.dev-php.site">Blog</a>
+                    <a href="http://blog.dev-php.site?utm_source=api_client&utm_medium=link&utm_campaign=github">Blog</a>
                 </li>
                 <li>
-                    <a href="#">Contact</a>
+                    <a href="http://portfolio.dev-php.site?utm_source=api_client&utm_medium=link&utm_campaign=github">Portfolio</a>
                 </li>
             </ul>
         </div>

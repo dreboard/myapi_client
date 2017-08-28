@@ -17,7 +17,7 @@ $( document ).ready(function() {
 		 * @return void
 		 */
 		init: function () {
-			this.error();
+			//this.error();
 		},
 
 		/**
