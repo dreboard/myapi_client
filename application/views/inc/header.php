@@ -1,3 +1,13 @@
+<?php
+use DebugBar\StandardDebugBar;
+
+if($_SERVER['APPLICATION_ENV'] === 'development'){
+	$debugbar = new StandardDebugBar();
+	$debugbarRenderer = $debugbar->getJavascriptRenderer();
+	$debugbarRenderer->setBaseUrl('resources/');
+	$debugbar["messages"]->addMessage("hello world!");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,6 +46,12 @@
 		ga('send', 'pageview');
 
 	</script>
+
+	<?php
+	if($_SERVER['APPLICATION_ENV'] === 'development'){
+		echo $debugbarRenderer->renderHead();
+	}
+	 ?>
 
 </head>
 

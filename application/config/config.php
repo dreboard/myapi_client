@@ -24,10 +24,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 switch($_SERVER['APPLICATION_ENV']){
-	case 'development':
+	case 'development':                                         //Built in webserver or vagrant
+		if($_SERVER['SERVER_NAME'] === 'client.dev-php.dev'){
+			$config['base_url'] = 'http://client.dev-php.dev';
+			break;
+		}
 		$config['base_url'] = 'http://localhost:7001/';
 		break;
-	default:
+	default:                                                     // Live/production
 		$config['base_url'] = 'http://client.dev-php.site';
 }
 

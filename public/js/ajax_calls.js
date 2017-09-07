@@ -5,6 +5,7 @@
  */
 
 $( document ).ready(function() {
+	$('#usersTblHdr').hide();
 	try{
 		var url = BASE_URL+"Welcome/getVersion";
 		console.log('Ready');
@@ -36,6 +37,8 @@ $( document ).ready(function() {
 			this.dom();
 			this.getEvent();
 			this.postEvent();
+			this.getUsers();
+			this.getUser();
 		},
 
 		/**
@@ -47,6 +50,9 @@ $( document ).ready(function() {
 			this.$contentbox = $('.page_body');
 			this.$ajax_btn = $('#ajax_btn');
 			this.$post_btn = $('#post_btn');
+			this.$users_btn =  $('#users_btn');
+
+			this.$usersLink =  $('.usersLink');
 			this.$otherBtns = this.$contentbox.find('#ajax_btn');
 		},
 
@@ -69,6 +75,27 @@ $( document ).ready(function() {
 		},
 
 		/**
+		 * Register a get event
+		 *
+		 * @return void
+		 */
+		getUsers: function () {
+			this.$users_btn.on('click', this.getAllUsers);
+		},
+
+		/**
+		 * Get user
+		 *
+		 * @return void
+		 */
+		getUser: function () {
+			//this.$usersLink.on('click', this.userInfo);
+			$( "#usersTblHdr" ).on( "click", "a", function( event ) {
+				event.preventDefault();
+				return false;
+			});
+		},
+		/**
 		 * Register a test event
 		 *
 		 * @return void
@@ -79,7 +106,7 @@ $( document ).ready(function() {
 				alert('hello');
 				$('#post_response').text('Some new text');
 			} catch(err){
-				console.log(err.message);
+				mainObj.error(err.message);
 			}
 
 		},
@@ -120,10 +147,12 @@ $( document ).ready(function() {
 						if(APPLICATION_ENV === 'development'){
 							$('#post_response').text(xhr.responseText);
 							$('#post_response').text(error.message);
+							mainObj.error(err.message);
+							mainObj.error(err.message);
 						}
 					});
 			} catch (err) {
-				console.log((err.message));
+				mainObj.error(err.message);
 			}
 		},
 
@@ -154,13 +183,54 @@ $( document ).ready(function() {
 						if(APPLICATION_ENV === 'development'){
 							$('#post_response').text(xhr.responseText);
 							$('#post_response').text(error.message);
+							mainObj.error(err.message);
+							mainObj.error(xhr.responseText);
 						}
 					});
 
 			} catch (err) {
-				console.log((err.message));
+				mainObj.error(err.message);
 			}
-		}
+		},
+		/**
+		 * Fire an ajax GET request
+		 *
+		 * @return object
+		 */
+		getAllUsers: function (event) {
+			event.preventDefault();
+			try {
+				$('.usersTblRows').empty();
+				$('#usersTblHdr').show();
+				var tableData;
+				$.ajax({
+					method: "POST",
+					data: { 'fetch': 'all' },
+					dataType: 'json',
+					url: BASE_URL+"/UserController/getAllUsersPost"
+				})
+					.done(function (data) {
+						//var data2 = $.parseJSON(data); // If data does not come back as JSON
+						console.log(data);  // for testing only
+						var obj = jQuery.parseJSON(data);
+						//console.log(data2);
+						jQuery.each(obj, function (key, obj) {
+							console.log(obj.name);
+							tableData += "<tr class='usersTblRows'>" +
+								"<td><a class='usersLink'>"+ obj.name +"</a></td><td>"+ obj.email +"</td>" +
+								"</tr>";
+						});
+						$('#usersTbl').append(tableData);
+					})
+					.fail(function (xhr, status, error) {
+						if(APPLICATION_ENV === 'development'){
+							console.log(error.message);
+						}
+					});
+			} catch (err) {
+				mainObj.error(err.message);
+			}
+		},
 
 	};
 

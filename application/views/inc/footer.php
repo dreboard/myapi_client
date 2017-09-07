@@ -11,7 +11,11 @@
 
 </div>
 <!-- /.container -->
-
+<?php
+if($_SERVER['APPLICATION_ENV'] === 'development'){
+	echo $debugbarRenderer->render();
+}
+ ?>
 </body>
 
 </html>
